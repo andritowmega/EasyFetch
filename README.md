@@ -1,5 +1,12 @@
 # EasyFetch 0.1.1
-Perform easier fetches in Static FrontEnd projects, You don't need to declare and instantiate inputs to get their values. EasyFetch will do it for you
+Perform easier fetches in Static FrontEnd projects, You don't need to declare and instantiate inputs to get their 
+URL Include
+```
+https://easyfetch.smarttech.pe/js/easyfetch.js
+
+```
+
+values. EasyFetch will do it for you
 ```
 <body>
   <input type="text" id="email-login">
