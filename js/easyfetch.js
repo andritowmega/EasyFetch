@@ -25,7 +25,7 @@ class EasyFetch {
 
     let url = this.production
       ? "https://" + window.location.host + urlApi
-      : "http://" + window.location.host + urlApi;
+      : window.location.protocol + window.location.host + urlApi;
     if (!this.production) {
       console.log("FETCHING", method, url);
     }
