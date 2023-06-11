@@ -11,6 +11,14 @@ class EasyFetch {
     return document.querySelectorAll("input,TextArea,select");
   }
 
+  getById(id) {
+    return document.getElementById(id);
+  }
+  
+  getByName(name) {
+    return document.getElementsByName(name);
+  }
+
   async fetchData(
     urlApi,
     params = {},
