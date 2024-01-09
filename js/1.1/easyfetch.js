@@ -109,6 +109,31 @@ class EasyFetch {
       }
       return "";
     }
+    printJSONinHTML(jsonObj, parentElement) {
+            var outputHTML = '<ul>';
+            
+            for (var key in jsonObj) {
+                if (jsonObj.hasOwnProperty(key)) {
+                    outputHTML += '<li>';
+                    outputHTML += '<strong>' + key + ':</strong> ';
+                    
+                    if (typeof jsonObj[key] === 'object') {
+                        // Recursivamente imprimir sub-objetos
+                        imprimirJSONenHTML(jsonObj[key], outputHTML);
+                    } else {
+                        // Imprimir valores simples
+                        outputHTML += jsonObj[key];
+                    }
+                    
+                    outputHTML += '</li>';
+                }
+            }
+            
+            outputHTML += '</ul>';
+            
+            // Agregar HTML al elemento padre
+            parentElement.innerHTML = outputHTML;
+        }
   }
   let easyFetch = new EasyFetch();
   
