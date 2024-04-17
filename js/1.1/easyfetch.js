@@ -63,19 +63,30 @@ class EasyFetch {
       return data;
     }
     formatParams(params) {
-      for (let i in params) {
-        for(let y=0;y<this.inputs.length;y++){
-          if(params[i]==this.inputs[y].id){
-            params[i]=this.inputs[y].value
-            break;
+      const traverse = (obj) => {
+        for (let key in obj) {
+          if (typeof obj[key] === 'object') {
+            traverse(obj[key]);
+          } else {
+            for (let y = 0; y < this.inputs.length; y++) {
+              if (obj[key] === this.inputs[y].id) {
+                obj[key] = this.inputs[y].value;
+                break;
+              }
+            }
           }
         }
-      }
+      };
+    
+      traverse(params);
+    
       if (!this.production) {
         console.log("PARAMS PAYLOAD", params);
       }
+    
       return params;
     }
+    
     checkParams(params) {
       for (let i in params) {
         if (!params[i] || params[i] == null || params[i] == undefined) {
